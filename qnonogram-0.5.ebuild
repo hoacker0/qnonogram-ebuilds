@@ -3,11 +3,12 @@
 
 EAPI=8
 
-inherit cmake git-r3 desktop xdg
+inherit cmake desktop xdg
 
 DESCRIPTION="Nonogram or japanese puzzle based on Qt6"
 HOMEPAGE="https://github.com/hoacker0/qnonogram"
-EGIT_REPO_URI="https://github.com/hoacker0/qnonogram.git"
+SRC_URI="https://github.com/hoacker0/qnonogram/archive/refs/tags/${P}.tar.gz"
+S=${WORKDIR}/qnonogram-qnonogram-${PV}
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -22,10 +23,6 @@ DEPEND="${RDEPEND}"
 BDEPEND="
 	dev-qt/qtbase:6
 "
-
-src_unpack() {
-	git-r3_src_unpack
-}
 
 src_install() {
 	cmake_src_install
